@@ -1,0 +1,47 @@
+.forgot-section{
+    width: 40%;
+    margin: auto;
+}
+.forgot-pera{
+    color: black;
+}
+.forgot-colm{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    border-top-right-radius: 30px;
+    background: #0090B0;
+    // background: linear-gradient(180deg, #D3E9F9 0%, #F8E4FC 44.79%, #F0F5EA 71.35%, #DAFFEE 100%);
+}
+.logo-images-forgot{    
+    width: 409px;
+    height: 350px;
+}
+.reset-modal{
+    height: 350px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.reset-pass-btn{
+    background: #0090B0;
+    color: white;
+    border: none;
+    padding: 10px 40px;
+    border-radius: 12px;
+}
+@media screen and (max-width: 768px) {
+    .logo-images-forgot{
+        width: 340px;
+        height: 310px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .logo-images-forgot{
+        width: 280px;
+        height: 275px;
+    }
+}

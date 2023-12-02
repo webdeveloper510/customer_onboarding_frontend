@@ -1,0 +1,79 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+.row {
+    --bs-gutter-x: 0 !important;
+    --bs-gutter-y: 0 !important;
+}
+.main::-webkit-scrollbar {
+    display: none;
+}
+.heading{
+    color: black;
+}
+.bg-color{
+    background-color:#0090B0;
+}
+.logo-images {
+    width: 425px;
+    height: 400px;
+}
+.heading{
+    font-family: "Gilroy";
+}
+.signin-div{
+    border-bottom-right-radius: 30px;
+    background-color: #0090B0;
+}
+.signin-btn{
+    width: 108px;
+    height: 43px;
+    color: #FFFFFF;
+    background: transparent;
+    font-weight: 600;
+    border: none;
+    border-bottom-right-radius: 50px;
+}
+.signup-btn{
+    width: 108px;
+    height: 43px;
+    font-weight: 600;
+    color: #0090B0;
+    border: none;
+    background: white;
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+}
+.image-section{
+    border-top-right-radius: 30px;
+    height: 550px;
+}
+.form-section{
+    display: flex;
+    justify-content: center;
+}
+.submit-btn{
+    color: #FFFFFF;
+    background: #0090B0;
+    border: none;
+    border-radius: 30px;
+    padding: 10px 0px;
+    width: 280px;
+}
+.PhoneInputInput {
+    flex: 1 1;
+    min-width: 0;
+    border: none !important;
+}
+@media screen and (max-width: 768px) {
+    .logo-images{
+        width: 340px;
+        height: 310px;
+    }
+}
+@media screen and (max-width: 425px) {
+    .image-section{
+        height: 400px;
+    }
+}

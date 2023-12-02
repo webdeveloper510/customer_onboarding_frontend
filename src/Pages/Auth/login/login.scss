@@ -1,0 +1,46 @@
+.signin-colm{
+    border-top-right-radius: 30px;
+    background: linear-gradient(180deg, #D3E9F9 0%, #F8E4FC 44.79%, #F0F5EA 71.35%, #DAFFEE 100%);
+}
+.logo-images {
+    width: 425px;
+    height: 380px;
+}
+.logup-btn{
+    width: 108px;
+    height: 43px;
+    color: #FFFFFF;
+    background: transparent;
+    border: none;
+    padding: 5px 0px;
+    font-weight: 600;
+    border-bottom-right-radius: 50px;
+}
+.login-btn{
+    width: 108px;
+    height: 43px;
+    color: #0090B0;
+    border: none;
+    font-weight: 600;
+    background: white;
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+}
+.forgot-pass{
+    color: #0090B0;
+    text-decoration:none;
+}
+
+@media screen and (max-width: 768px) {
+    .logo-images{
+        width: 340px;
+        height: 310px;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .logo-images{
+        width: 280px;
+        height: 275px;
+    }
+}
