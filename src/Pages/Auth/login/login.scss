@@ -2,9 +2,12 @@
     border-top-right-radius: 30px;
     background: linear-gradient(180deg, #D3E9F9 0%, #F8E4FC 44.79%, #F0F5EA 71.35%, #DAFFEE 100%);
 }
-.logo-images {
-    width: 425px;
-    height: 380px;
+.logo-images-login{
+    width: 409px;
+    height: 350px;
+}
+.image-section-login{
+    height: 450px;
 }
 .logup-btn{
     width: 108px;
@@ -25,6 +28,22 @@
     background: white;
     border-top-left-radius: 50px;
     border-bottom-left-radius: 50px;
+}
+.save-btn{
+    color: #FFFFFF;
+    background: #0090B0;
+    border: none;
+    padding: 8px 25px;
+    font-weight: 600;
+    border-radius: 10px;
+}
+.cancel-btn{
+    color: #FFFFFF;
+    background: #363838;
+    border: none;
+    padding: 8px 25px;
+    font-weight: 600;
+    border-radius: 10px;
 }
 .forgot-pass{
     color: #0090B0;

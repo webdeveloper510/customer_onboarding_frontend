@@ -62,8 +62,9 @@
     width: 280px;
 }
 .PhoneInputInput {
-    flex: 1 1;
-    min-width: 0;
+    border: none !important;
+}
+.PhoneInputInput:focus{
     border: none !important;
 }
 @media screen and (max-width: 768px) {
