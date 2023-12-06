@@ -4,7 +4,7 @@ import { usertoken } from "../../utils/api";
 
 const Natural = () => {
   const [data, setData] = useState([]);
-  
+
   useEffect(() => {
     getusertoken();
   }, []);
@@ -111,7 +111,7 @@ const Natural = () => {
     if (data == 7 || data == 8) {
       return (
         <>
-        <Link to="/natural-user" style={{ color: "#0090b0" }}>
+        <Link to="/natural-kyc" style={{ color: "#0090b0" }}>
           <h4
             className="bi bi-arrow-right-circle"
             style={{ fontWeight: "bold" }}

@@ -47,7 +47,7 @@ const LAddress = () => {
 
   return (
     <div className="main-content">
-      <h2 className="text-center" style={{fontFamily: "initial"}}>Address</h2>
+      <h3 className="text-center" style={{fontFamily: "initial"}}>Address</h3>
       <form onSubmit={formik.handleSubmit} noValidate>
         <div className="mb-3 mt-4">
           <input

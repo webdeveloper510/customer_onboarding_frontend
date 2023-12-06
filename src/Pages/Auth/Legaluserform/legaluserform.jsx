@@ -7,6 +7,7 @@ import Ldocument from "./Ldocument";
 import Employment from "./Employment";
 import Lalldetails from "./Lalldetails";
 import CompanyDetail from "./Company";
+import { Link } from "react-router-dom";
 
 const { Step } = Steps;
 
@@ -87,6 +88,13 @@ const Legaluserform = () => {
       }}
     >
       <div className="py-4" style={{width:"90%", margin:"auto"}}>
+      <Link to="/dashboard">
+        <i
+          class="bi bi-arrow-left-circle-fill"
+          style={{ fontSize: "30px", color: "#0090b0" }}
+        ></i>
+        </Link>
+        <h3 className="text-center mb-4" style={{fontFamily: "initial"}}>Legal User</h3>
         <Steps current={currentStep}>
           {/* <Step title={"Address details"} /> */}
           <Step title={"Document details"} />

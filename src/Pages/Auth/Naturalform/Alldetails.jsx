@@ -57,7 +57,7 @@ const Alldetails = () => {
 
   return (
     <div className="w-50 m-auto py-4">
-      <h2 className="text-center">All Details</h2>
+      <h3 className="text-center" style={{fontFamily: "initial"}}>All Details</h3>
       <Table responsive striped bordered hover>
         <thead>
           <tr>

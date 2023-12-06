@@ -74,8 +74,8 @@ const Dashboard = () => {
         >
           <Step title={"Natural User"} />
           <Step title={"Legal User"} />
-          <Step title={"Document Uploaded"} />
-          <Step title={"KYC Uploaded"} />
+          <Step title={"Document Upload"} />
+          <Step title={"KYC Upload"} />
         </Steps>
         <main>{renderStep(currentStep)}</main>
         {/* </Provider> */}

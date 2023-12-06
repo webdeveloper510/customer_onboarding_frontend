@@ -7,6 +7,7 @@ import AllDetails from "./Alldetail";
 import Deedupload from "./Deedupload";
 import Vatupload from "./Vatuploaded.js";
 import Annualacc from "./Annualacc";
+import { Link } from "react-router-dom";
 
 const { Step } = Steps;
 
@@ -78,6 +79,13 @@ const Documentuserform = () => {
       }}
     >
       <div className="py-4" style={{width:"90%", margin:"auto"}}>
+      <Link to="/dashboard">
+        <i
+          class="bi bi-arrow-left-circle-fill"
+          style={{ fontSize: "30px", color: "#0090b0" }}
+        ></i>
+        </Link>
+        <h3 className="text-center mb-4" style={{fontFamily: "initial"}}>Document Upload</h3>
         <Steps current={currentStep}>
           <Step title={"Bank Certificate"} />
           <Step title={"Upload deed"} />

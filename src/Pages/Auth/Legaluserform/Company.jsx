@@ -30,9 +30,9 @@ const CompanyDetail = () => {
 
   return (
     <div className="main-content">
-      <h2 className="text-center" style={{fontFamily: "initial"}}>Company Details</h2>
+      <h3 className="text-center" style={{fontFamily: "initial"}}>Company Details</h3>
       <form onSubmit={formik.handleSubmit} noValidate>
-        <div className="mb-3 mt-4">
+        <div className="mb-3 mt-3">
           <input
             placeholder="Company Name"
             type="text"

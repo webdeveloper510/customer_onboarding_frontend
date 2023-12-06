@@ -85,7 +85,7 @@ const Naturaluser = () => {
           style={{ fontSize: "30px", color: "#0090b0" }}
         ></i>
         </Link>
-        <h3 className="text-center" style={{fontFamily: "initial"}}>Natural User</h3>
+        <h3 className="text-center mb-4" style={{fontFamily: "initial"}}>Natural User</h3>
         <Steps current={currentStep}>
           <Step title={"Address details"} />
           <Step title={"Document details"} />
