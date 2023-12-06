@@ -3,10 +3,11 @@ import Naturalform from "./Naturalform";
 import Table from "react-bootstrap/Table";
 import { userNatural } from "../../utils/api";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router";
 
 const Alldetails = () => {
   const { details, address, natural, next, prev } = useContext(Naturalform);
-
+   const navigate = useNavigate()
   console.log(
     "detailsss",
     details,
@@ -40,6 +41,7 @@ const Alldetails = () => {
             autoClose: 2000,
             theme: "colored",
           });
+          navigate("/dashboard")
         } else {
           toast.error(res?.data.message, {
             position: "top-right",

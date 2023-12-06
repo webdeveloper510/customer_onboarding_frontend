@@ -1,16 +1,15 @@
 import React, { useContext } from "react";
-import Legaluser from "./Legaluser";
+import Documentform from "./Documentform";
 import Table from "react-bootstrap/Table";
 // import { userLegal } from "../../utils/api";
 import { toast } from "react-toastify";
 import { userLegal } from "../../utils/api";
 import { compileAsync } from "sass";
-import { useNavigate } from "react-router";
 
-const Lalldetails = () => {
+const AllDetails = () => {
   const { details, address, natural, company, next, prev } =
-    useContext(Legaluser);
-  const navigate = useNavigate()
+    useContext(Documentform);
+
   console.log(
     "detailsss",
     details,
@@ -22,17 +21,17 @@ const Lalldetails = () => {
 
   const submitDetails = () => {
     userLegal({
-      // addressLine1: address.address_line1,
-      // addressLine2: address.address_line2,
-      // country: "ES",
-      // region: address.region,
-      // city: address.city,
-      // postalCode: address.postal_code,
-      // documentType: details.documentType,
-      companyDocumentNumber: details.documentNumber,
-      companyDocumentIssuingCountry: "ES",
-      companyDocumentExpirationDate: details.expirationDate,
-      companyDocumentEmissionDate: details.emissionDate,
+      addressLine1: address.address_line1,
+      addressLine2: address.address_line2,
+      country: "ES",
+      region: address.region,
+      city: address.city,
+      postalCode: address.postal_code,
+      documentType: details.documentType,
+      documentNumber: details.documentNumber,
+      issuingCountry: "ES",
+      expirationDate: details.expirationDate,
+      emissionDate: details.emissionDate,
       companyName: company.companyName,
       numberOfEmployees: parseInt(company.numberOfEmployees),
       annualTurnoverCurrency: "EUR",
@@ -46,7 +45,6 @@ const Lalldetails = () => {
             autoClose: 2000,
             theme: "colored",
           });
-          navigate("/document-upload")
         } else {
           toast.error(res?.data.message, {
             position: "top-right",
@@ -65,38 +63,23 @@ const Lalldetails = () => {
       <h2 className="text-center">All Details</h2>
       <Table responsive striped bordered hover>
         <thead>
-          {/* <tr>
+          <tr>
             <th className="text-center" colSpan={2}>
-              Address
+              Document Uploaded
             </th>
-          </tr> */}
+          </tr>
           
         </thead>
         <tbody>
-          {/* <tr>
-            <td>Address Line 1</td>
-            <td>{address.address_line1}</td>
+          <tr>
+            <td>Document Type</td>
+            <td>{address.documentType}</td>
           </tr>
           <tr>
-            <td>Address Line 2</td>
-            <td>{address.address_line2}</td>
+            <td>Document</td>
+            <td>{address.document}</td>
           </tr>
-          <tr>
-            <td>Country</td>
-            <td>ES</td>
-          </tr>
-          <tr>
-            <td>Region</td>
-            <td>{address.region}</td>
-          </tr>
-          <tr>
-            <td>City</td>
-            <td>{address.city}</td>
-          </tr>
-          <tr>
-            <td>Postal Code</td>
-            <td>{address.postal_code}</td>
-          </tr> */}
+        
 
           <tr>
             <th className="text-center" colSpan={2}>
@@ -173,4 +156,4 @@ const Lalldetails = () => {
   );
 };
 
-export default Lalldetails;
+export default AllDetails;

@@ -29,8 +29,8 @@ const CompanyDetail = () => {
   });
 
   return (
-    <div className="w-25 m-auto">
-      <h2 className="text-center">Company Details</h2>
+    <div className="main-content">
+      <h2 className="text-center" style={{fontFamily: "initial"}}>Company Details</h2>
       <form onSubmit={formik.handleSubmit} noValidate>
         <div className="mb-3 mt-4">
           <input

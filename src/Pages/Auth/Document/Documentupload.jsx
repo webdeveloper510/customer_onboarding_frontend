@@ -1,57 +1,51 @@
 import React, { useState } from "react";
-import { Provider } from "./Naturalform";
-import MultiStep from "react-multistep";
+import { Provider } from "./Documentform";
 import { Steps } from "antd";
-import Address from "./Address";
+// import "./legal.scss";
 import Document from "./Document";
-import "./naturaluser.scss";
-import Details from "./Details";
-import Alldetails from "./Alldetails";
-import { Link } from "react-router-dom";
+import AllDetails from "./Alldetail";
+import Deedupload from "./Deedupload";
+import Vatupload from "./Vatuploaded.js";
+import Annualacc from "./Annualacc";
 
 const { Step } = Steps;
 
 const detailsInitialState = {
-  documentType: "",
-  documentNumber: "",
-  // issuingCountry: "",
-  expirationDate: "",
-  emissionDate: "",
+  document: "",
 };
 
 const addressInitialState = {
-  address_line1: "",
-  address_line2: "",
-  // country: "",
-  region: "",
-  city: "",
-  postal_code: "",
+  document: "",
 };
 
 const naturalDetail = {
-  employmentStatus: "",
-  businessActivity: "",
+  document: "",
+};
+
+const companydetail = {
+  document: "",
 };
 
 const renderStep = (step) => {
   console.log("stepppppppppppppppp", step);
   switch (step) {
     case 0:
-      return <Address />;
-    case 1:
       return <Document />;
+    case 1:
+      return <Deedupload />;
     case 2:
-      return <Details />;
+      return <Vatupload />;
     case 3:
-      return <Alldetails />;
+      return <Annualacc />;
     default:
       return null;
   }
 };
 
-const Naturaluser = () => {
+const Documentuserform = () => {
   const [details, setDetails] = useState(detailsInitialState);
   const [address, setAddress] = useState(addressInitialState);
+  const [company, setCompany] = useState(companydetail);
   const [natural, setNatural] = useState(naturalDetail);
   const [currentStep, setCurrentStep] = useState(0);
 
@@ -60,11 +54,14 @@ const Naturaluser = () => {
       setCurrentStep(0);
       setDetails(detailsInitialState);
       setAddress(addressInitialState);
+      setCompany(companydetail)
+      setNatural(naturalDetail)
       return;
     }
     setCurrentStep(currentStep + 1);
   };
   const prev = () => setCurrentStep(currentStep - 1);
+
   return (
     <Provider
       value={{
@@ -76,25 +73,20 @@ const Naturaluser = () => {
         setAddress,
         natural,
         setNatural,
+        company,
+        setCompany,
       }}
     >
-      <div className="py-4" style={{ width: "90%", margin: "auto" }}>
-        <Link to="/dashboard">
-        <i
-          class="bi bi-arrow-left-circle-fill"
-          style={{ fontSize: "30px", color: "#0090b0" }}
-        ></i>
-        </Link>
-        <h3 className="text-center" style={{fontFamily: "initial"}}>Natural User</h3>
+      <div className="py-4" style={{width:"90%", margin:"auto"}}>
         <Steps current={currentStep}>
-          <Step title={"Address details"} />
-          <Step title={"Document details"} />
-          <Step title={"Employment details"} />
-          <Step title={"Review and Save"} />
+          <Step title={"Bank Certificate"} />
+          <Step title={"Upload deed"} />
+          <Step title={"Upload Vat"} />
+          <Step title={"Upload Annual Account"} />
         </Steps>
       </div>
       <main>{renderStep(currentStep)}</main>
     </Provider>
   );
 };
-export default Naturaluser;
+export default Documentuserform;

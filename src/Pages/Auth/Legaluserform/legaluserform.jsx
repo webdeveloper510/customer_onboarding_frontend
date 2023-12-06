@@ -11,7 +11,7 @@ import CompanyDetail from "./Company";
 const { Step } = Steps;
 
 const detailsInitialState = {
-  documentType: "",
+  // documentType: "",
   documentNumber: "",
   // issuingCountry: "",
   expirationDate: "",
@@ -41,13 +41,13 @@ const companydetail = {
 const renderStep = (step) => {
   console.log("stepppppppppppppppp", step);
   switch (step) {
+    // case 0:
+    //   return <LAddress />;
     case 0:
-      return <LAddress />;
-    case 1:
       return <Ldocument />;
-    case 2:
+    case 1:
       return <CompanyDetail />;
-      case 3:
+      case 2:
         return <Lalldetails />;
     default:
       return null;
@@ -62,7 +62,7 @@ const Legaluserform = () => {
   const [currentStep, setCurrentStep] = useState(0);
 
   const next = () => {
-    if (currentStep === 3) {
+    if (currentStep === 2) {
       setCurrentStep(0);
       setDetails(detailsInitialState);
       setAddress(addressInitialState);
@@ -86,9 +86,9 @@ const Legaluserform = () => {
         setCompany
       }}
     >
-      <div className="w-75 m-auto py-4">
+      <div className="py-4" style={{width:"90%", margin:"auto"}}>
         <Steps current={currentStep}>
-          <Step title={"Address details"} />
+          {/* <Step title={"Address details"} /> */}
           <Step title={"Document details"} />
           <Step title={"Company Details"} />
           <Step title={"Review and Save"} />

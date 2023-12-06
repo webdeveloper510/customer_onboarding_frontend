@@ -72,11 +72,19 @@ const Login = () => {
               position: "top-right",
               autoClose: 2000,
               theme: "colored",
-              });
-              setShow(true);
+              });   
+              navigate("/dashboard")           
               // if(res?.data?.result?.step == 1 ){
-              //   setShow(true);
-              // }              
+              //   navigate("/natural-user")
+              // }else if(res?.data?.result?.step == 2 ){
+              //   navigate("/legal-user")
+              // } else if(res?.data?.result?.step == 3 ){
+              //   navigate("/document-upload")
+              // }else if(res?.data?.result?.step == 7 ){
+              //   navigate("/natural-kyc")
+              // } else if(res?.data?.result?.step == 8 )   {
+              //   navigate("/legal-kyc")
+              // }       
           }else{
             toast.error(res?.data.message, {
               position: "top-right",

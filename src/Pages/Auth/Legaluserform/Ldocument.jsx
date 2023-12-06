@@ -9,10 +9,10 @@ const Ldocument = () => {
   const { details, setDetails, next, prev } = useContext(Legaluser);
 
   const loginSchema = Yup.object().shape({
-    documentType: Yup.string()
-      .min(3, "Minimum 3 symbols")
-      .max(50, "Maximum 50 symbols")
-      .required("Document Type is required"),
+    // documentType: Yup.string()
+    //   .min(3, "Minimum 3 symbols")
+    //   .max(50, "Maximum 50 symbols")
+    //   .required("Document Type is required"),
     documentNumber: Yup.string()
       .min(3, "Minimum 3 symbols")
       .max(50, "Maximum 50 symbols")
@@ -42,10 +42,10 @@ const Ldocument = () => {
   });
 
   return (
-    <div className="w-25 m-auto">
-      <h2 className="text-center">Document</h2>
+    <div className="main-content">
+      <h2 className="text-center" style={{fontFamily: "initial"}}>Document</h2>
       <form onSubmit={formik.handleSubmit} noValidate>
-        <div className="mb-3 mt-4">
+        {/* <div className="mb-3 mt-4">
           <select
             placeholder="Document Type"
             type="text"
@@ -64,7 +64,7 @@ const Ldocument = () => {
             )}
             name="documentType"
             >
-              <option value="">select document...</option>
+              <option value="">Select Document...</option>
               <option value="DNI">Distributable Net Income </option>
               <option value="NIF">National Innovation Foundation</option>
               <option value="NIE">National Institute of Education</option>
@@ -75,7 +75,7 @@ const Ldocument = () => {
               {formik.errors.documentType}
             </div>
           ) : null}
-        </div>
+        </div> */}
 
         <div className="mb-3" id="pwd_field">
           <input
@@ -180,10 +180,10 @@ const Ldocument = () => {
         </div>
 
         <div className="text-center d-flex justify-content-between mt-4">
-          <button type="button" className="cancel-btn" onClick={prev}>
+          {/* <button type="button" className="cancel-btn" onClick={prev}>
             Back
-          </button>
-          <button type="submit" className="next-btn">
+          </button> */}
+          <button type="submit" className="next1-btn">
             Next
           </button>
         </div>
