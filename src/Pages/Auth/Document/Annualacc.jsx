@@ -3,7 +3,7 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import clsx from "clsx";
 import Documentform from "./Documentform";
-import { userannualAccounts } from "../../utils/api";
+import { userannualAccounts, userlegalKyc } from "../../utils/api";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router";
 
@@ -42,12 +42,18 @@ const Annualacc = () => {
         console.log("document uploaded responseeeeeeeeeee", res);
         if (res.status == 200) {          
           setCompany(formData);
-          toast.success(res?.data.message, {
-            position: "top-right",
-            autoClose: 2000,
-            theme: "colored",
-          });
-          navigate("/natural-kyc")
+          userlegalKyc().then((res1)=>{
+            if (res1.status == 200) {  
+              toast.success("Your documents are being reviewed", {
+                position: "top-right",
+                autoClose: 5000,
+                theme: "colored",
+              });
+              navigate("/dashboard");
+            }        
+          })
+        
+          
         } else {
           toast.error(res?.data.message, {
             position: "top-right",
@@ -104,7 +110,7 @@ const Annualacc = () => {
           <input
             placeholder="Document"
             type="file"
-            accept=".jpg , .bmp , .pdf"
+            accept=".pdf"
             autoComplete="off"
             onChange={(e) => handleFileChange(e)}
             // {...formik.getFieldProps("document")}

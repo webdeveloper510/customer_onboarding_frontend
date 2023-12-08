@@ -12,7 +12,10 @@ import { Link } from "react-router-dom";
 const { Step } = Steps;
 
 const detailsInitialState = {
-  document: "",
+  document1: "",
+  document2: "",
+  document3: "",
+  document4: "",
 };
 
 const addressInitialState = {
@@ -31,9 +34,9 @@ const renderStep = (step) => {
   console.log("stepppppppppppppppp", step);
   switch (step) {
     case 0:
-      return <Document />;
-    case 1:
       return <Deedupload />;
+    case 1:
+      return <Document />;
     case 2:
       return <Vatupload />;
     case 3:
@@ -78,7 +81,7 @@ const Documentuserform = () => {
         setCompany,
       }}
     >
-      <div className="py-4" style={{width:"90%", margin:"auto"}}>
+      <div className="" style={{width:"90%", margin:"auto"}}>
       <Link to="/dashboard">
         <i
           class="bi bi-arrow-left-circle-fill"
@@ -87,8 +90,8 @@ const Documentuserform = () => {
         </Link>
         <h3 className="text-center mb-4" style={{fontFamily: "initial"}}>Document Upload</h3>
         <Steps current={currentStep}>
-          <Step title={"Bank Certificate"} />
           <Step title={"Upload deed"} />
+          <Step title={"Representative"} />          
           <Step title={"Upload Vat"} />
           <Step title={"Upload Annual Account"} />
         </Steps>

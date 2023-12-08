@@ -63,7 +63,7 @@ const Vatupload = () => {
 
   return (
     <div className="main-content py-5">
-      <h3 style={{fontFamily: "initial"}}  className="text-center my-3">Uploaded Vat</h3>
+      <h3 style={{fontFamily: "initial"}}  className="text-center my-3">Upload Vat</h3>
       <form onSubmit={formik.handleSubmit} noValidate>
         {/* <div className="mb-3 mt-4">
           <select
@@ -103,7 +103,7 @@ const Vatupload = () => {
           <input
             placeholder="Document"
             type="file"
-            accept=".jpg , .bmp , .pdf"
+            accept=".pdf"
             autoComplete="off"
             onChange={(e) => handleFileChange(e)}
             // {...formik.getFieldProps("document")}

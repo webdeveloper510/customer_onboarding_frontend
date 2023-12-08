@@ -14,18 +14,18 @@ const Ldocument = () => {
     //   .max(50, "Maximum 50 symbols")
     //   .required("Document Type is required"),
     documentNumber: Yup.string()
-      .min(3, "Minimum 3 symbols")
-      .max(50, "Maximum 50 symbols")
+    .matches(/^[A-Z]\d{8}$/, 'Invalid format, followed this format L50543784')
+    // .matches(/^[0-9]{8}[A-Z]$/, 'Invalid format, followed this format 12345678A')
+      // .min(3, "Minimum 3 symbols")
+      // .max(50, "Maximum 50 symbols")
       .required("Document Number is required"),
     // issuingCountry: Yup.string()
     //   .required("Issuing Number is required"),
-    expirationDate: Yup.string()
-      .min(3, "Minimum 3 symbols")
-      .max(50, "Maximum 50 symbols")
-      .required("Expiration Date is required"),
-    emissionDate:Yup.string()
-      .min(3, "Minimum 3 symbols")
-      .max(50, "Maximum 50 symbols")
+    // expirationDate: Yup.string()
+    //   .min(3, "Minimum 3 symbols")
+    //   .max(50, "Maximum 50 symbols")
+    //   .required("Expiration Date is required"),
+    emissionDate: Yup.string()
       .required("Emission Date is required"),
   });
 
@@ -43,7 +43,9 @@ const Ldocument = () => {
 
   return (
     <div className="main-content">
-      <h3 className="text-center" style={{fontFamily: "initial"}}>Document</h3>
+      <h3 className="text-center" style={{ fontFamily: "initial" }}>
+        NIF
+      </h3>
       <form onSubmit={formik.handleSubmit} noValidate>
         {/* <div className="mb-3 mt-4">
           <select
@@ -78,8 +80,9 @@ const Ldocument = () => {
         </div> */}
 
         <div className="mb-3" id="pwd_field">
+          <label style={{color:"gray"}}>NIF Number (A12345678)</label>
           <input
-            placeholder="Document Number"
+            placeholder="NIF Number"
             type="text"
             autoComplete="off"
             {...formik.getFieldProps("documentNumber")}
@@ -91,7 +94,8 @@ const Ldocument = () => {
               },
               {
                 "is-valid":
-                  formik.touched.documentNumber && !formik.errors.documentNumber,
+                  formik.touched.documentNumber &&
+                  !formik.errors.documentNumber,
               }
             )}
             name="documentNumber"
@@ -137,27 +141,7 @@ const Ldocument = () => {
         </div> */}
 
         <div className="mb-3">
-          <input
-            placeholder="Expiration Date"
-            type="date"
-            autoComplete="off"
-            {...formik.getFieldProps("expirationDate")}
-            className={clsx(
-              "form-control bg-transparent",
-              {
-                "is-invalid": formik.touched.expirationDate && formik.errors.expirationDate,
-              },
-              {
-                "is-valid": formik.touched.expirationDate && !formik.errors.expirationDate,
-              }
-            )}
-            name="expirationDate"
-          />
-          {formik.errors.expirationDate && formik.touched.expirationDate ? (
-            <div className="text-danger text-start">{formik.errors.expirationDate}</div>
-          ) : null}
-        </div>
-        <div className="mb-3">
+        <label>Emission Date</label>
           <input
             placeholder="Emission Date"
             type="date"
@@ -166,24 +150,55 @@ const Ldocument = () => {
             className={clsx(
               "form-control bg-transparent",
               {
-                "is-invalid": formik.touched.emissionDate && formik.errors.emissionDate,
+                "is-invalid":
+                  formik.touched.emissionDate && formik.errors.emissionDate,
               },
               {
-                "is-valid": formik.touched.emissionDate && !formik.errors.emissionDate,
+                "is-valid":
+                  formik.touched.emissionDate && !formik.errors.emissionDate,
               }
             )}
             name="emissionDate"
           />
           {formik.errors.emissionDate && formik.touched.emissionDate ? (
-            <div className="text-danger text-start">{formik.errors.emissionDate}</div>
+            <div className="text-danger text-start">
+              {formik.errors.emissionDate}
+            </div>
           ) : null}
         </div>
+        {/* <div className="mb-3">
+          <label style={{color:"gray"}}>Expiration Date</label>
+          <input
+            placeholder="Expiration Date"
+            type="date"
+            autoComplete="off"
+            {...formik.getFieldProps("expirationDate")}
+            className={clsx(
+              "form-control bg-transparent",
+              {
+                "is-invalid":
+                  formik.touched.expirationDate && formik.errors.expirationDate,
+              },
+              {
+                "is-valid":
+                  formik.touched.expirationDate &&
+                  !formik.errors.expirationDate,
+              }
+            )}
+            name="expirationDate"
+          />
+          {formik.errors.expirationDate && formik.touched.expirationDate ? (
+            <div className="text-danger text-start">
+              {formik.errors.expirationDate}
+            </div>
+          ) : null}
+        </div> */}
 
         <div className="text-center d-flex justify-content-between mt-4">
-          {/* <button type="button" className="cancel-btn" onClick={prev}>
+          <button type="button" className="cancel-btn" onClick={prev}>
             Back
-          </button> */}
-          <button type="submit" className="next1-btn">
+          </button>
+          <button type="submit" className="next-btn">
             Next
           </button>
         </div>

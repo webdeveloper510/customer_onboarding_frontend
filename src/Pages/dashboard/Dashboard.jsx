@@ -16,7 +16,17 @@ const renderStep = (step) => {
       return <Natural />;
     case 3:
       return <Natural />;
+    case 4:
+      return <Natural />;
+    case 5:
+      return <Natural />;
+    case 6:
+      return <Natural />;
+    case 7:
+      return <Natural />;
     case 8:
+      return <Natural />;
+    case 9:
       return <Natural />;
     default:
       return null;
@@ -43,7 +53,7 @@ const Dashboard = () => {
       });
   };
 
-  console.log("cureent step currentStep", currentStep)
+  console.log("cureent step currentStep", currentStep);
 
   const next = () => {
     if (currentStep === 8) {
@@ -73,7 +83,7 @@ const Dashboard = () => {
           style={{ border: "2px solid #0090B0", borderRadius: "30px" }}
         >
           <Step title={"Natural User"} />
-          <Step title={"Legal User"} />
+          <Step title={"Business details"} />
           <Step title={"Document Upload"} />
           <Step title={"KYC Upload"} />
         </Steps>

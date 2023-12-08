@@ -14,7 +14,7 @@ const { Step } = Steps;
 const detailsInitialState = {
   documentType: "",
   documentNumber: "",
-  // issuingCountry: "",
+  issuingCountry: "",
   expirationDate: "",
   emissionDate: "",
 };
@@ -22,7 +22,7 @@ const detailsInitialState = {
 const addressInitialState = {
   address_line1: "",
   address_line2: "",
-  // country: "",
+  country: "",
   region: "",
   city: "",
   postal_code: "",
@@ -78,7 +78,7 @@ const Naturaluser = () => {
         setNatural,
       }}
     >
-      <div className="py-4" style={{ width: "90%", margin: "auto" }}>
+      <div className="" style={{ width: "90%", margin: "auto" }}>
         <Link to="/dashboard">
         <i
           class="bi bi-arrow-left-circle-fill"

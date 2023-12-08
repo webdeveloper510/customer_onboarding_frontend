@@ -25,6 +25,10 @@ const Signup = () => {
       .min(3, "Minimum 3 symbols")
       .max(50, "Maximum 50 symbols")
       .required("First name is required"),
+    middleName: Yup.string()
+      .min(3, "Minimum 3 symbols")
+      .max(50, "Maximum 50 symbols")
+      .required("Middle Name is required"),
     email: Yup.string()
       .email("Wrong email format")
       .min(3, "Minimum 3 symbols")
@@ -47,27 +51,29 @@ const Signup = () => {
         "Password and Confirm Password didn't match"
       ),
     phone: Yup.string()
-      .min(3, "Minimum 7 symbols")
-      .max(16, "Maximum 16 symbols")
+      .min(9, "Phone number is not in the correct format")
+      .max(16, "Phone number is not in the correct format")
+      // .matches(/^\+34 \d{3} \d{2} \d{2} \d{2}$/, 'Phone number is not in the correct format')
       .required("Phone Numbar is required"),
     dateOfBirth: Yup.string().required("Date of birth is required"),
-    // company: Yup.string()
-    //   .min(3, "Minimum 3 symbols")
-    //   .max(50, "Maximum 50 symbols")
-    //   .required("Company name is required"),
+    company: Yup.string()
+      .min(3, "Minimum 3 symbols")
+      .max(50, "Maximum 50 symbols")
+      .required("Company name is required"),
     // nationality: Yup.string()
     //   .required("nationality is required"),
   });
 
   const initialValues = {
     firstName: "",
+    middleName:"",
     lastName: "",
     email: "",
     password: "",
     confirmPassword: "",
     phone: "",
     dateOfBirth: "",
-    // company: "",
+    company: "",
     // nationality: "",
     // country: "",
   };
@@ -79,12 +85,14 @@ const Signup = () => {
       console.log(values);
       userRegister({
         firstName: values.firstName,
-        lastName: values.lastName,
+        lastName: values.middleName,
+        lastName2: values.lastName,
         email: values.email,
         password: values.password,
         phone: values.phone,
         dateOfBirth: values.dateOfBirth,
         nationality: "ES",
+        companyName: values.company
       })
         .then((res) => {
           console.log("user register ------", res);
@@ -147,7 +155,7 @@ const Signup = () => {
               <h2 className="text-center mt-4 heading">Sign up</h2>
               <div>
                 <form onSubmit={formik.handleSubmit} noValidate>
-                  <div className="mb-3 mt-4">
+                  <div className="mb-2 mt-4">
                     <input
                       placeholder="First name"
                       type="text"
@@ -173,8 +181,34 @@ const Signup = () => {
                       </div>
                     ) : null}
                   </div>
+                  <div className="mb-2">
+                    <input
+                      placeholder="Middle name"
+                      type="text"
+                      autoComplete="off"
+                      {...formik.getFieldProps("middleName")}
+                      className={clsx(
+                        "form-control bg-transparent",
+                        {
+                          "is-invalid":
+                            formik.touched.middleName && formik.errors.middleName,
+                        },
+                        {
+                          "is-valid":
+                            formik.touched.middleName &&
+                            !formik.errors.middleName,
+                        }
+                      )}
+                      name="middleName"
+                    />
+                    {formik.errors.middleName && formik.touched.middleName ? (
+                      <div className="text-danger text-start">
+                        {formik.errors.middleName}
+                      </div>
+                    ) : null}
+                  </div>
 
-                  <div className="mb-3" id="pwd_field">
+                  <div className="mb-2" id="pwd_field">
                     <input
                       placeholder="Last name"
                       type="text"
@@ -200,7 +234,7 @@ const Signup = () => {
                     ) : null}
                   </div>
 
-                  <div className="mb-3" id="pwd_field">
+                  <div className="mb-2" id="pwd_field">
                     <input
                       placeholder="Email"
                       type="email"
@@ -226,7 +260,7 @@ const Signup = () => {
                     ) : null}
                   </div>
 
-                  <div className="mb-3">
+                  <div className="mb-2">
                     <PhoneInput
                       style={{ display: "flex" }}
                       international
@@ -274,14 +308,14 @@ const Signup = () => {
                     )}
                     name="phone_no"
                   /> */}
-                    {formik.errors.phone_no && formik.touched.phone_no ? (
+                    {formik.errors.phone && formik.touched.phone ? (
                       <div className="text-danger text-start">
-                        {formik.errors.phone_no}
+                        {formik.errors.phone}
                       </div>
                     ) : null}
                   </div>
 
-                  <div className="mb-3" id="pwd_field">
+                  <div className="mb-2" id="pwd_field">
                     <input
                     type="password"
                       // type={passVissible ? "text" : "password"}
@@ -323,7 +357,7 @@ const Signup = () => {
                     
                   </div>
 
-                  <div className="mb-3" id="pwd_field">
+                  <div className="mb-2" id="pwd_field">
                     <input
                     type="password"
                       // type={cpassVissible ? "text" : "password"}
@@ -367,7 +401,8 @@ const Signup = () => {
 
                    
                   </div>
-                  <div className="mb-3">
+                  <div className="mb-2">
+                    <label>Date of Birth</label>
                     <input
                       placeholder="Date of birth"
                       type="date"
@@ -394,9 +429,9 @@ const Signup = () => {
                       </div>
                     ) : null}
                   </div>
-                  {/* <div className="mb-3">
+                  <div className="mb-2">
                     <input
-                      placeholder="Comapny"
+                      placeholder="Company"
                       type="text"
                       autoComplete="off"
                       {...formik.getFieldProps("company")}
@@ -418,8 +453,8 @@ const Signup = () => {
                         {formik.errors.company}
                       </div>
                     ) : null}
-                  </div> */}
-                  {/* <div className="mb-3" id="pwd_field">
+                  </div>
+                  {/* <div className="mb-2" id="pwd_field">
                     <input
                       placeholder="Nationality"
                       type="text"

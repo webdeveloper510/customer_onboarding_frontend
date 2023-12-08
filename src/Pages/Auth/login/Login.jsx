@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import logo from "../../../assets/image/logo1.png";
 import { useFormik } from "formik";
 import * as Yup from "yup";
@@ -15,6 +15,14 @@ const Login = () => {
   const [passVissible, setPassVissible] = useState(false);
   const [data, setData] = useState("");
   const [show, setShow] = useState(false);
+
+  const token = localStorage.getItem("token")
+  useEffect(()=>{
+    if(token){
+     navigate("/dashboard")
+    }
+  },[])
+
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -57,8 +65,7 @@ const Login = () => {
   const formik = useFormik({
     initialValues,
     validationSchema: loginSchema,
-    onSubmit: async (values) => {
-      
+    onSubmit: async (values) => {      
       console.log(values);
       userLogin({
         email: values.email,
@@ -73,18 +80,7 @@ const Login = () => {
               autoClose: 2000,
               theme: "colored",
               });   
-              navigate("/dashboard")           
-              // if(res?.data?.result?.step == 1 ){
-              //   navigate("/natural-user")
-              // }else if(res?.data?.result?.step == 2 ){
-              //   navigate("/legal-user")
-              // } else if(res?.data?.result?.step == 3 ){
-              //   navigate("/document-upload")
-              // }else if(res?.data?.result?.step == 7 ){
-              //   navigate("/natural-kyc")
-              // } else if(res?.data?.result?.step == 8 )   {
-              //   navigate("/legal-kyc")
-              // }       
+              navigate("/dashboard")     
           }else{
             toast.error(res?.data.message, {
               position: "top-right",
@@ -202,11 +198,11 @@ const Login = () => {
                     </button>
                   </div>
 
-                  <div className="text-center mt-2">
+                  {/* <div className="text-center mt-2">
                     <Link to="/forgot-password" className="forgot-pass">
                       Forget Password
                     </Link>
-                  </div>
+                  </div> */}
                   {/* <div className="my-4 text-center">
                     <p>Or</p>
                   </div> */}

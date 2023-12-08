@@ -21,13 +21,13 @@ const Alldetails = () => {
     userNatural({
       addressLine1: address.address_line1,
       addressLine2: address.address_line2,
-      country: "ES",
+      country: address.country,
       region: address.region,
       city: address.city,
       postalCode: address.postal_code,
       documentType: details.documentType,
       documentNumber: details.documentNumber,
-      issuingCountry: "ES",
+      issuingCountry: details.issuingCountry,
       expirationDate: details.expirationDate,
       employmentStatus: natural.employmentStatus,
       businessActivity: natural.businessActivity,
@@ -77,7 +77,7 @@ const Alldetails = () => {
           </tr>
           <tr>
             <td>Country</td>
-            <td>ES</td>
+            <td>{address.country}</td>
           </tr>
           <tr>
             <td>Region</td>

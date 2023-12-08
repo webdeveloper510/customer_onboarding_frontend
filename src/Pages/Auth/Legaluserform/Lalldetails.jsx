@@ -11,32 +11,26 @@ const Lalldetails = () => {
   const { details, address, natural, company, next, prev } =
     useContext(Legaluser);
   const navigate = useNavigate()
-  console.log(
-    "detailsss",
-    details,
-    "address---",
-    address,
-    "naturallllll",
-    natural
-  );
 
   const submitDetails = () => {
     userLegal({
-      // addressLine1: address.address_line1,
-      // addressLine2: address.address_line2,
-      // country: "ES",
-      // region: address.region,
-      // city: address.city,
-      // postalCode: address.postal_code,
+      companyEmail: company.companyEmail,
+      companyPhone: company.companyPhone,
+      companyAddressLine1: address.address_line1,
+      companyAddressLine2: address.address_line2,
+      companyCountry: address.country,
+      companyRegion: address.region,
+      companyCity: address.city,
+      companyPostalCode: address.postal_code,
       // documentType: details.documentType,
       companyDocumentNumber: details.documentNumber,
       companyDocumentIssuingCountry: "ES",
-      companyDocumentExpirationDate: details.expirationDate,
+      // companyDocumentExpirationDate: details.expirationDate,
       companyDocumentEmissionDate: details.emissionDate,
-      companyName: company.companyName,
+      // companyName: company.companyName,
       numberOfEmployees: parseInt(company.numberOfEmployees),
       annualTurnoverCurrency: "EUR",
-      annualTurnoverAmount: parseInt(company.annualTurnoverAmount),
+      annualTurnoverAmount: parseInt(company.annualTurnoverAmount*100),
     })
       .then((res) => {
         console.log("user natural response-------", res);
@@ -46,8 +40,15 @@ const Lalldetails = () => {
             autoClose: 2000,
             theme: "colored",
           });
-          navigate("/document-upload")
-        } else {
+          navigate("/dashboard")
+        }else if(res?.status == 409){
+          toast.error("NIF Number already exist", {
+            position: "top-right",
+            autoClose: 2000,
+            theme: "colored",
+          });
+        }
+         else {
           toast.error(res?.data.message, {
             position: "top-right",
             autoClose: 2000,
@@ -65,15 +66,15 @@ const Lalldetails = () => {
       <h3 className="text-center">All Details</h3>
       <Table responsive striped bordered hover>
         <thead>
-          {/* <tr>
+          <tr>
             <th className="text-center" colSpan={2}>
               Address
             </th>
-          </tr> */}
+          </tr>
           
         </thead>
         <tbody>
-          {/* <tr>
+          <tr>
             <td>Address Line 1</td>
             <td>{address.address_line1}</td>
           </tr>
@@ -96,7 +97,7 @@ const Lalldetails = () => {
           <tr>
             <td>Postal Code</td>
             <td>{address.postal_code}</td>
-          </tr> */}
+          </tr>
 
           <tr>
             <th className="text-center" colSpan={2}>
@@ -105,7 +106,7 @@ const Lalldetails = () => {
           </tr>
           <tr>
             <td>Document Type</td>
-            <td>{details.documentType}</td>
+            <td>NIF</td>
           </tr>
           <tr>
             <td>Document Number</td>
@@ -115,10 +116,10 @@ const Lalldetails = () => {
             <td>Issuing Country</td>
             <td>ES</td>
           </tr>
-          <tr>
+          {/* <tr>
             <td>Expiration Date</td>
             <td>{details.expirationDate}</td>
-          </tr>
+          </tr> */}
           <tr>
             <td>Emission Date</td>
             <td>{details.emissionDate}</td>
@@ -128,24 +129,25 @@ const Lalldetails = () => {
             <th className="text-center" colSpan={2}>
               Employment
             </th>
-          </tr>
-          <tr>
-            <td>Employment Status</td>
-            <td>{natural.employmentStatus}</td>
-          </tr>
-          <tr>
-            <td>Business Activity</td>
-            <td>{natural.businessActivity}</td>
-          </tr> */}
+          </tr>*/}
+         
           <tr>
             <th className="text-center" colSpan={2}>
               Company Detail
             </th>
           </tr>
           <tr>
+            <td>Comapny Email</td>
+            <td>{company.companyEmail}</td>
+          </tr>
+          <tr>
+            <td>Business Activity</td>
+            <td>{company.companyPhone}</td>
+          </tr> 
+          {/* <tr>
             <td>Company Name</td>
             <td>{company.companyName}</td>
-          </tr>
+          </tr> */}
           <tr>
             <td>Number Of Employees</td>
             <td>{company.numberOfEmployees}</td>

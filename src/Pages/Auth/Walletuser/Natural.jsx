@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { usertoken } from "../../utils/api";
 
 const Natural = () => {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState(null);
 
   useEffect(() => {
     getusertoken();
@@ -119,10 +119,11 @@ const Natural = () => {
         </Link>
         </>
       );
-    } else if (data > 2) {
+    } else if (data > 8) {
       return(
         <>
-        <h4 className="bi bi-check-circle-fill" style={{ color: "green" }}></h4>
+        <span>Pending</span>
+        {/* <h4 className="bi bi-check-circle-fill" style={{ color: "green" }}></h4> */}
         </>
       )
     }else{
@@ -165,7 +166,7 @@ const Natural = () => {
           style={{ border: "1px solid #0090B0", borderRadius: "30px" }}
         >
           <div className="d-flex justify-content-between">
-            <h5>Legal User</h5>
+            <h5>Business details</h5>
             <div>
               {legaluser()}
             </div>
@@ -189,7 +190,7 @@ const Natural = () => {
           style={{ border: "1px solid #0090B0", borderRadius: "30px" }}
         >
           <div className="d-flex justify-content-between">
-            <h5>KYC Upload</h5>
+            <h5>Verify User</h5>
             <div>
               {kycupload()}
             </div>

@@ -15,14 +15,14 @@ const detailsInitialState = {
   // documentType: "",
   documentNumber: "",
   // issuingCountry: "",
-  expirationDate: "",
+  // expirationDate: "",
   emissionDate:"",
 };
 
 const addressInitialState = {
   address_line1: "",
   address_line2: "",
-  // country: "",
+  country: "",
   region: "",
   city: "",
   postal_code: "",
@@ -34,22 +34,24 @@ const naturalDetail = {
 };
 
 const companydetail = {
-    companyName: "",
-    numberOfEmployees: "",
-    annualTurnoverAmount:""
-  };
+  companyEmail:"",
+  companyPhone:"",
+  companyName: "",
+  numberOfEmployees: "",
+  annualTurnoverAmount: "",
+};
 
 const renderStep = (step) => {
   console.log("stepppppppppppppppp", step);
   switch (step) {
-    // case 0:
-    //   return <LAddress />;
     case 0:
-      return <Ldocument />;
+      return <LAddress />;
     case 1:
+      return <Ldocument />;
+    case 2:
       return <CompanyDetail />;
-      case 2:
-        return <Lalldetails />;
+    case 3:
+      return <Lalldetails />;
     default:
       return null;
   }
@@ -63,7 +65,7 @@ const Legaluserform = () => {
   const [currentStep, setCurrentStep] = useState(0);
 
   const next = () => {
-    if (currentStep === 2) {
+    if (currentStep === 3) {
       setCurrentStep(0);
       setDetails(detailsInitialState);
       setAddress(addressInitialState);
@@ -84,19 +86,21 @@ const Legaluserform = () => {
         natural,
         setNatural,
         company,
-        setCompany
+        setCompany,
       }}
     >
-      <div className="py-4" style={{width:"90%", margin:"auto"}}>
-      <Link to="/dashboard">
-        <i
-          class="bi bi-arrow-left-circle-fill"
-          style={{ fontSize: "30px", color: "#0090b0" }}
-        ></i>
+      <div className="" style={{ width: "90%", margin: "auto" }}>
+        <Link to="/dashboard">
+          <i
+            class="bi bi-arrow-left-circle-fill"
+            style={{ fontSize: "30px", color: "#0090b0" }}
+          ></i>
         </Link>
-        <h3 className="text-center mb-4" style={{fontFamily: "initial"}}>Legal User</h3>
+        <h3 className="text-center mb-4" style={{ fontFamily: "initial" }}>
+         Business details
+        </h3>
         <Steps current={currentStep}>
-          {/* <Step title={"Address details"} /> */}
+          <Step title={"Address details"} />
           <Step title={"Document details"} />
           <Step title={"Company Details"} />
           <Step title={"Review and Save"} />

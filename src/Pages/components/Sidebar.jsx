@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 import { usertoken } from '../utils/api';
+// import nexopayLogo from "../../../public/nexopay-logo.gif"
+import nexopayLogo from "../../assets/image/nexopay-logo.gif"
+
 
 const Sidebar = () => {
     const [activeItem, setActiveItem] = useState(null);
@@ -27,19 +30,22 @@ const Sidebar = () => {
 
   return (
     <div style={{height:"100vh",background:"#0090B0", borderRadius:"20px", margin:"10px"}}>
-       <div className="sidebar text-white p-3" >
+       <div className="sidebar text-white p-3" style={{fontFamily: "auto"}} >
       <div className='text-center py-2 mt-5 main_icon' >
-        <h1 style={{fontFamily: "auto"}}>Welcome 
-          <span className='d-block'>
-          {` ${data?.firstName ? data?.firstName : ""} ${data?.lastName ? data?.lastName :""}`}
-          </span>
-        </h1>
-       {/* <Link to="/">
-       <img
-          src={LogoMobile}
+      <img
+          src={nexopayLogo}
           alt="img"
           className="sidebar_pic"
+          width={150}
         />
+        <h1 >Welcome 
+          
+        </h1>
+        <h3 className='d-block' >
+          {` ${data?.firstName ? data?.firstName : ""} ${data?.lastName ? data?.lastName : ""} ${data?.lastName2 ? data?.lastName2 :""}`}
+          </h3>
+       {/* <Link to="/">
+      
        </Link> */}
       </div>
 

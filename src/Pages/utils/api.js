@@ -89,7 +89,7 @@ export const userLegal = async (data) => {
 // users/bankCertificate
 export const userbankCertificate = async (data) => {
   console.log("dataaaaaaaaaaaaaaa", data)
-  const response = await Axios.post(`/users/bankCertificate`, data, {
+  const response = await Axios.post(`/users/representative`, data, {
     headers: {
       "Authorization" : `Bearer ${token}`
     },

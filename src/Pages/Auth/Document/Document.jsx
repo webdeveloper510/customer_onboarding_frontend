@@ -62,7 +62,7 @@ const Document = () => {
   return (
     <div className="main-content py-5">
       <h3 style={{ fontFamily: "initial" }} className="text-center my-4">
-        Bank Certificate
+       Representative
       </h3>
       <form onSubmit={formik.handleSubmit} noValidate>
         {/* <div className="mb-3 mt-4">
@@ -103,7 +103,7 @@ const Document = () => {
           <input
             placeholder="Document"
             type="file"
-            accept=".jpg , .bmp , .pdf"
+            accept=".pdf"
             autoComplete="off"
             onChange={(e) => handleFileChange(e)}
             // {...formik.getFieldProps("document")}
@@ -125,11 +125,11 @@ const Document = () => {
           ) : null}
         </div>
 
-        <div className="text-center">
-          {/* <button type="button" className="cancel-btn" onClick={prev}>
+        <div className="text-center d-flex justify-content-between mt-4">
+          <button type="button" className="cancel-btn" onClick={prev}>
             Back
-          </button> */}
-          <button type="submit" className="next1-btn">
+          </button>
+          <button type="submit" className="next-btn">
             Next
           </button>
         </div>

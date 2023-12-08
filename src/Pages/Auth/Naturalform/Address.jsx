@@ -17,8 +17,8 @@ const Address = () => {
       .min(3, "Minimum 3 symbols")
       .max(50, "Maximum 50 symbols")
       .required("Address Line 2 is required"),
-    // country: Yup.string()
-    //   .required("Country is required"),
+    country: Yup.string()
+      .required("Country is required"),
     region: Yup.string()
       .min(3, "Minimum 3 symbols")
       .max(50, "Maximum 50 symbols")
@@ -26,11 +26,12 @@ const Address = () => {
     city: Yup.string()
       .min(3, "Minimum 3 symbols")
       .max(50, "Maximum 50 symbols")
-      .required("Address Line 1 is required"),
+      .required("City is required"),
     postal_code: Yup.string()
       .min(3, "Minimum 3 symbols")
-      .max(50, "Maximum 50 symbols")
-      .required("Address Line 2 is required"),
+      .max(8, "Maximum 8 symbols")
+      .matches(/^[0-9]+$/, 'Only Number')
+      .required("Postal code is required"),
   });
 
   const initialValues = address
@@ -101,7 +102,7 @@ const Address = () => {
           ) : null}
         </div>
 
-        {/* <div className="mb-3" id="pwd_field">
+        <div className="mb-3" id="pwd_field">
           <select
             placeholder="Country"
             type="text"
@@ -119,6 +120,9 @@ const Address = () => {
             name="country"
           >
             <option>Select Country...</option>
+            {/* <option value="ES">Spain</option>
+            <option value="FR">France</option>
+            <option value="IE">Ireland</option> */}
             {
               country?.map((item)=>{
                 return(
@@ -132,7 +136,7 @@ const Address = () => {
               {formik.errors.country}
             </div>
           ) : null}
-        </div> */}
+        </div>
 
         <div className="mb-3">
           <input

@@ -17,8 +17,8 @@ const LAddress = () => {
       .min(3, "Minimum 3 symbols")
       .max(50, "Maximum 50 symbols")
       .required("Address Line 2 is required"),
-    // country: Yup.string()
-    //   .required("Country is required"),
+    country: Yup.string()
+      .required("Country is required"),
     region: Yup.string()
       .min(3, "Minimum 3 symbols")
       .max(50, "Maximum 50 symbols")
@@ -27,10 +27,11 @@ const LAddress = () => {
       .min(3, "Minimum 3 symbols")
       .max(50, "Maximum 50 symbols")
       .required("Address Line 1 is required"),
-    postal_code: Yup.string()
+      postal_code: Yup.string()
       .min(3, "Minimum 3 symbols")
-      .max(50, "Maximum 50 symbols")
-      .required("Address Line 2 is required"),
+      .max(8, "Maximum 8 symbols")
+      .matches(/^[0-9]+$/, 'Only Number')
+      .required("Postal code is required"),
   });
 
   const initialValues = address
@@ -101,7 +102,7 @@ const LAddress = () => {
           ) : null}
         </div>
 
-        {/* <div className="mb-3" id="pwd_field">
+        <div className="mb-3" id="pwd_field">
           <select
             placeholder="Country"
             type="text"
@@ -118,7 +119,8 @@ const LAddress = () => {
             )}
             name="country"
           >
-            <option>Select Country...</option>
+            <option value="">Select Country...</option>
+            
             {
               country?.map((item)=>{
                 return(
@@ -132,7 +134,7 @@ const LAddress = () => {
               {formik.errors.country}
             </div>
           ) : null}
-        </div> */}
+        </div>
 
         <div className="mb-3">
           <input

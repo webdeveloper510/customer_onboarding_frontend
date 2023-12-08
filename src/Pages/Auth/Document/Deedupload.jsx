@@ -11,7 +11,10 @@ const Deedupload = () => {
   const [selectedFile, setSelectedFile] = useState(null);
 
   const loginSchema = Yup.object().shape({
-    document: Yup.string().required("Document is required"),
+    document1: Yup.string().required("Document is required"),
+    document2: Yup.string().required("Document is required"),
+    document3: Yup.string().required("Document is required"),
+    document4: Yup.string().required("Document is required"),
   });
 
   const initialValues = details;
@@ -21,8 +24,12 @@ const Deedupload = () => {
     validationSchema: loginSchema,
     onSubmit: async (values) => {
       const formData = new FormData();
-      formData.append("document", values.document);
-      
+      // let arr = [values.document1 , values.document2 , values.document3 , values.document4]
+      formData.append("documents", values.document1);
+      formData.append("documents", values.document2);
+      formData.append("documents", values.document3);
+      formData.append("documents", values.document4);
+      console.log("document uploaded responseeeeeeeeeee", formData.get("documents"));
       userUploadDeed(formData).then((res) => {
         console.log("document uploaded responseeeeeeeeeee", res);
         if (res.status == 200) {
@@ -47,15 +54,15 @@ const Deedupload = () => {
 
   const handleFileChange = (e) => {
     const file_img = e.target.files[0];
-
+    console.log("e.target name---", file_img)
     setSelectedFile(file_img);
-    formik.setFieldValue("document", file_img);
+    formik.setFieldValue(e.target.name, file_img);
   };
 
   return (
-    <div className="main-content py-5">
-      <h3 style={{ fontFamily: "initial" }} className="text-center my-3">
-        Uploaded Deed
+    <div className="main-content">
+      <h3 style={{ fontFamily: "initial" }} className="text-center my-2">
+        Upload Deed
       </h3>
       <form onSubmit={formik.handleSubmit} noValidate>
         {/* <div className="mb-3 mt-4">
@@ -92,37 +99,116 @@ const Deedupload = () => {
           ) : null}
         </div> */}
 
-        <div className="mb-4" id="pwd_field">
+        <div className="mb-3" id="pwd_field">
+          <label style={{color:"gray"}}>Certificado de Constitucion</label>
           <input
             placeholder="Document"
-            type="file"
-            accept=".jpg , .bmp , .pdf"
+            type="file"            
+            accept=".pdf"
             autoComplete="off"
             onChange={(e) => handleFileChange(e)}
             // {...formik.getFieldProps("document")}
             className={clsx(
               "form-control bg-transparent",
               {
-                "is-invalid": formik.touched.document && formik.errors.document,
+                "is-invalid": formik.touched.document1 && formik.errors.document1,
               },
               {
-                "is-valid": formik.touched.document && !formik.errors.document,
+                "is-valid": formik.touched.document1 && !formik.errors.document1,
               }
             )}
-            name="document"
+            name="document1"
           />
-          {formik.errors.document && formik.touched.document ? (
+          {formik.errors.document1 && formik.touched.document1 ? (
             <div className="text-danger text-start">
-              {formik.errors.document}
+              {formik.errors.document1}
             </div>
           ) : null}
         </div>
 
-        <div className="text-center d-flex justify-content-between mt-4">
-          <button type="button" className="cancel-btn" onClick={prev}>
-            Back
-          </button>
-          <button type="submit" className="next-btn">
+        <div className="mb-3" id="pwd_field">
+          <label style={{color:"gray"}}>Estatutos</label>
+          <input
+            placeholder="Document"
+            type="file"
+            accept=".pdf"
+            autoComplete="off"
+            onChange={(e) => handleFileChange(e)}
+            // {...formik.getFieldProps("document")}
+            className={clsx(
+              "form-control bg-transparent",
+              {
+                "is-invalid": formik.touched.document2 && formik.errors.document2,
+              },
+              {
+                "is-valid": formik.touched.document2 && !formik.errors.document2,
+              }
+            )}
+            name="document2"
+          />
+          {formik.errors.document2 && formik.touched.document2 ? (
+            <div className="text-danger text-start">
+              {formik.errors.document2}
+            </div>
+          ) : null}
+        </div>
+
+        <div className="mb-3" id="pwd_field">
+          <label style={{color:"gray"}}>Cambio de denominacion social</label>
+          <input
+            placeholder="Document"
+            type="file"
+            accept=".pdf"
+            autoComplete="off"
+            onChange={(e) => handleFileChange(e)}
+            // {...formik.getFieldProps("document")}
+            className={clsx(
+              "form-control bg-transparent",
+              {
+                "is-invalid": formik.touched.document3 && formik.errors.document3,
+              },
+              {
+                "is-valid": formik.touched.document3 && !formik.errors.document3,
+              }
+            )}
+            name="document3"
+          />
+          {formik.errors.document3 && formik.touched.document3 ? (
+            <div className="text-danger text-start">
+              {formik.errors.document3}
+            </div>
+          ) : null}
+        </div>
+
+        <div className="mb-3" id="pwd_field">
+          <label style={{color:"gray"}} >Certificado de Identificacion Fiscal</label>
+          <input
+            placeholder="Document"
+            type="file"
+            accept=".pdf"
+            autoComplete="off"
+            onChange={(e) => handleFileChange(e)}
+            // {...formik.getFieldProps("document")}
+            className={clsx(
+              "form-control bg-transparent",
+              {
+                "is-invalid": formik.touched.document4 && formik.errors.document4,
+              },
+              {
+                "is-valid": formik.touched.document4 && !formik.errors.document4,
+              }
+            )}
+            name="document4"
+          />
+          {formik.errors.document4 && formik.touched.document4 ? (
+            <div className="text-danger text-start">
+              {formik.errors.document4}
+            </div>
+          ) : null}
+        </div>
+
+        <div>         
+          <button type="submit" className="next1-btn">
             Next
           </button>
         </div>

@@ -87,26 +87,26 @@ const Details = () => {
             name="businessActivity"
           >
             <option value="">Business Activity</option>
-            <option value="AGRICULTURE_FORESTRY_FISHING">AGRICULTURE_FORESTRY_FISHING</option>
-            <option value="REAL_ESTATE">REAL_ESTATE</option>
+            <option value="AGRICULTURE_FORESTRY_FISHING">AGRICULTURE FORESTRY FISHING</option>
+            <option value="REAL_ESTATE">REAL ESTATE</option>
             <option value="EDUCATION">EDUCATION</option>
             <option value="TELECOMMUNICATIONS">TELECOMMUNICATIONS</option>
-            <option value="INDUSTRY_MANUFACTURING">INDUSTRY_MANUFACTURING</option><option value="AGRICULTURE_FORESTRY_FISHING">AGRICULTURE_FORESTRY_FISHING</option>
+            <option value="INDUSTRY_MANUFACTURING">INDUSTRY MANUFACTURING</option>
             <option value="CONSTRUCTION">CONSTRUCTION</option>
             <option value="AUTOMOTIVE">AUTOMOTIVE</option>
-            <option value="HOSPITALITY_TOURISM">HOSPITALITY_TOURISM</option>
-            <option value="FINANCIAL_INSURANCE">FINANCIAL_INSURANCE</option>
+            <option value="HOSPITALITY_TOURISM">HOSPITALITY TOURISM</option>
+            <option value="FINANCIAL_INSURANCE">FINANCIAL INSURANCE</option>
 
-            <option value="PUBLIC_ADMINISTRATION">PUBLIC_ADMINISTRATION</option>
-            <option value="HEALTH_PROFESSIONAL_SERVICES">HEALTH_PROFESSIONAL_SERVICES</option>
-            <option value="MAINTENANCE_CLEANING">MAINTENANCE_CLEANING</option>
+            <option value="PUBLIC_ADMINISTRATION">PUBLIC ADMINISTRATION</option>
+            <option value="HEALTH_PROFESSIONAL_SERVICES">HEALTH PROFESSIONAL SERVICES</option>
+            <option value="MAINTENANCE_CLEANING">MAINTENANCE CLEANING</option>
             <option value="SCIENCE">SCIENCE</option>
-            <option value="TECHNOLOGY">TECHNOLOGY</option><option value="AGRICULTURE_FORESTRY_FISHING">AGRICULTURE_FORESTRY_FISHING</option>
+            <option value="TECHNOLOGY">TECHNOLOGY</option>
             <option value="TRANSPORT">TRANSPORT</option>
-            <option value="ART_CULTURE">ART_CULTURE</option>
-            <option value="JEWELRY_WATCHES">JEWELRY_WATCHES</option>
+            <option value="ART_CULTURE">ART CULTURE</option>
+            <option value="JEWELRY_WATCHES">JEWELRY WATCHES</option>
             <option value="GAMBLING">GAMBLING</option>
-            <option value="MEDIA_ADVERTISING">MEDIA_ADVERTISING</option>
+            <option value="MEDIA_ADVERTISING">MEDIA ADVERTISING</option>
             <option value="OTHER">OTHER</option>
           </select>
           {formik.errors.businessActivity && formik.touched.businessActivity ? (
